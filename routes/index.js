@@ -3,8 +3,10 @@ import createError from 'http-errors'
 import multer from 'multer'
 
 // TODO: import Firebase dependencies
-
+import firebaseApp from '../firebase.js'
 // TODO: import Firebase applications
+import { getAuth,signInWithEmailAndPassword }   from 'firebase/auth'
+
 
 const router = express.Router()
 const upload = multer()
@@ -23,7 +25,16 @@ router.get('/auth', function (req, res, next) {
 router.post('/auth', function (req, res, next) {
   const { username, password } = req.body
   // TODO
-})
+  signInWithEmailAndPassword(auth, username, password)
+    .then(data) => {}
+    res.redirect {'/'}
+   
+  })
+    .catch((_) => {
+    res.render('auth', {error:"Wrong credentials"})
+  })
+
+
 
 router.get('/logout', function (req, res, next) {
   // TODO
