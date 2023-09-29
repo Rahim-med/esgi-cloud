@@ -12,7 +12,7 @@ const router = express.Router()
 const upload = multer()
 
 // TODO: create Firebase modules
-
+const auth = getAuth(firebaseApp)
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { user: auth.currentUser })

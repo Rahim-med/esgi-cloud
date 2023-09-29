@@ -5,15 +5,16 @@ import bodyParser from 'body-parser'
 import logger from 'morgan'
 
 // TODO: import Firebase dependencies
-
+import { getAuth }   from 'firebase/auth'
 // TODO: import Firebase application
+import firebaseApp from '../firebase.js'
 
 import indexRouter from './routes/index.js'
 
 const app = express()
 
 // TODO: create Firebase module
-
+const auth = getAuth(firebaseApp)
 // view engine setup
 app.set('views', 'views')
 app.set('view engine', 'hbs')
@@ -27,7 +28,7 @@ app.use(express.static('public'))
 
 // Auth middleware
 app.use(function (req, res, next) {
-  const user = null; // TODO
+  const user = auth.currentUser;
   if (req.url === '/auth' && user)
     return res.redirect('/')
 
