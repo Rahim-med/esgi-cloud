@@ -27,11 +27,11 @@ router.post('/auth', function (req, res, next) {
   // TODO
   signInWithEmailAndPassword(auth, username, password)
      .then((_) => {
-     res.redirect ('/')
+       res.redirect ('/')
    
-  })
+    })
     .catch((_) => {
-    res.render('auth', {error:"Wrong credentials"})
+      res.render('auth', {error:"Wrong credentials"})
   })
 
 })
