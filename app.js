@@ -7,7 +7,7 @@ import logger from 'morgan'
 // TODO: import Firebase dependencies
 import { getAuth }   from 'firebase/auth'
 // TODO: import Firebase application
-import firebaseApp from '../firebase.js'
+import firebaseApp from './firebase.js'
 
 import indexRouter from './routes/index.js'
 
