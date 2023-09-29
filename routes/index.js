@@ -5,7 +5,7 @@ import multer from 'multer'
 // TODO: import Firebase dependencies
 import firebaseApp from '../firebase.js'
 // TODO: import Firebase applications
-import { getAuth,signInWithEmailAndPassword }   from 'firebase/auth'
+import { getAuth,signInWithEmailAndPassword,signOut }   from 'firebase/auth'
 
 
 const router = express.Router()
@@ -37,6 +37,10 @@ router.post('/auth', function (req, res, next) {
 })
 
 router.get('/logout', function (req, res, next) {
+  signOut(auth)
+   .then((_) => {
+    res.redirect('/')
+  })
   // TODO
 })
 
